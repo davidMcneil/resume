@@ -1,9 +1,15 @@
 \documentclass[a4paper, 10pt]{article}
-\usepackage[left=1cm,right=1cm,top=1.5cm,bottom=1.5cm]{geometry}
+\usepackage[left=1.75cm,right=1.75cm,top=1.75cm,bottom=1.75cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage{tabularx}
 \usepackage{enumitem}
 \usepackage[none]{hyphenat}
+\usepackage{ltablex}
+
+% Change itemize bullet type
+\renewcommand{\labelitemi}{$\_$}
+% Change itemize spacing
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=*}
 
 % TimeFrame
 % #1 Start Year
@@ -14,52 +20,46 @@
 }
 
 %% Work experience
-% #1 Employeer
+% #1 Employeer/Header
 % #2 Title
 % #3 Location
 % #4 Description
 % #5 Technologies used
-\newcommand{\experience}[5] {
-	\textbf{#1 }- \textsc{#2} - \textsc{#3}\newline #4\newline \textbf{Technology Used:} #5 \\[3pt]
-}
-
-% Projects and Coursework
-% #1 Title
-% #2 Description
-% #3 Technologies used
-\newcommand{\generic}[3] {
-	\textbf{#1} \newline #2 \newline \textbf{Technology Used:} #3 \\[3pt]
-}
-% Use if the end of parameter #2 is a list
-\newcommand{\genericList}[3] {
-	\textbf{#1} #2 \textbf{Technology Used:} #3 \\[3pt]
-}
-
-% Used to list out degrees
-% #1 School
-% #2 Location
-% #3 Description
-\newcommand{\educationRow}[3] {
-	\textbf{#1 }- \textsc{#2}\newline #3 \\[3pt]
+\newcommand{\entry}[5] {
+	% #1 Employeer/Header
+	\textbf{#1}
+	% #2 Title
+	\if\relax\detokenize{#2}\relax
+    \else
+    	- \textsc{#2}
+    \fi	
+	% #3 Location
+	\if\relax\detokenize{#3}\relax
+    \else
+    	- \textsc{#3}
+    \fi	  
+    % #4 Description
+	\newline #4
+	% #5 Technologies used
+	\if\relax\detokenize{#5}\relax
+    \else
+    	\newline \textbf{Technology Used:} #5
+	\fi
+	\\
 }
 
 % Draw a horizontal line in the second column
 \newcommand{\horizontalLine}[0] {
-	\noindent\rule{14.7cm}{0.4pt}
+	\noindent\rule{.77\linewidth}{0.4pt}
 }
-
-% Change itemize bullet type
-\renewcommand{\labelitemi}{$\_$}
-% Change itemize spacing
-\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=*}
 
 \begin{document}
 \pagenumbering{gobble}
 
-\begin{tabularx}{\textwidth}{>{\hsize=.11\hsize}X>{\hsize=.77\hsize}X}
+\begin{tabularx}{\linewidth}{>{\hsize=.12\linewidth}X>{\hsize=.77\linewidth}X}
 
 %% Header
-{\bfseries\Large David\newline McNeil} &
+{\bfseries\Large David McNeil} &
 5500 Wabash Avenue, CM 3324\newline
 Terre Haute, IN 47803\newline
 \href{mailto:mcneilde@rose-hulman.edu}{mcneilde@rose-hulman.edu}\newline
@@ -67,130 +67,134 @@ Terre Haute, IN 47803\newline
 
 %% Profile
 \textbf{Profile} &
-	{I am a computer engineering major with a strong background in computer science and software development currently pursuing a master's degree in electrical engineering focusing on computer architecture. I am seeking a full time engineering position starting in the summer of 2016.} \\
+	{I am a computer engineering major with a strong background in computer science and software development currently pursuing a master's degree in electrical engineering focusing on computer architecture and machine learning. I am seeking a full time position starting in the summer of 2016 designing systems which integrate machine learning and data science.} \\
 
 %% Experience
-\textbf{Experience} &
-\horizontalLine \\
+\textbf{Experience} & \horizontalLine \\
+
+	% Master's Work
+    \timeFrame{2015}{2016}{In Progress} &
+    \entry{Master's Thesis}{}{Terre Haute, Indiana}
+    {Development of a computer architecture simulator for neuroscience research and implementing neural networks.}
+    {C, Flex, Bison, Hodgkin-Huxley Model, Neural Networks}
 
     % Indesign
     \timeFrame{2014}{2015}{Three Months} &
-    \experience{Indesign}{Firmware Engineer Intern}{Indianapolis, Indiana}
+    \entry{Indesign}{Firmware Engineer Intern}{Indianapolis, Indiana}
     {Developed an embedded system which interfaced with numerous sensors and actuators.}
     {C, MSP430, Hall Effect Sensors, Current Sensors, RFID, Servo Motors}
 
     % NSWC
     \timeFrame{2014}{2015}{Nine Months} &
-    \experience{Naval Surface Warfare Center}{Senior Design Project}{Crane, Indiana}
+    \entry{Naval Surface Warfare Center}{Senior Design Project}{Crane, Indiana}
     {Developed a system to predict location based on RF spectrum data.}
     {Python, SQLite, GPS, Software Defined Radio}
 
 	% Garmin
     \timeFrame{2013}{2014}{Three Months} &
-    \experience{Garmin}{Low Level Software Engineer Intern}{Olathe, Kansas}
+    \entry{Garmin}{Low Level Software Engineer Intern}{Olathe, Kansas}
     {Developed software for operating system profiling. Updated, maintained, and debugged extensive C/C++ code base.}
     {C, C++, Lauterbach Debugger}
 
 	% Cetani
     \timeFrame{2012}{2013}{Three Months} &
-    \experience{Cetani}{Software Development Intern}{Carmel, Indiana}
+    \entry{Cetani}{Software Development Intern}{Carmel, Indiana}
     {Developed a server for issuing hospital notifications and pushing real-time changes in generic data to front end user interfaces.}
     {Ruby, Rails, C\#, Javascript, Node.js, SQLServer, HTML, CSS}
 
 	% Oasis Digital
     \timeFrame{2011}{2012}{Three months} &
-    \experience{Oasis Digital}{Software Development Intern}{Chesterfield, Missouri}
+    \entry{Oasis Digital}{Software Development Intern}{Chesterfield, Missouri}
     {Developed a work management system from the ground up.}
     {Node.js, Javascript, Backbone.js, PostgreSQL, HTML, CSS}
 
-    % Mobile Workforce Management
-    % \timeFrame{2008}{2009}{Three months} &
-    % \experience{Mobile Workforce Management}{Intern}{Wentzville, Missouri}
-    % {Data entry and software testing in Linux environment.}
-    % {Excel}
 
-% Projects work
-\textbf{Projects} &
-\horizontalLine \\
+% Projects and Coursework work
+\textbf{Projects  \& Coursework} & \horizontalLine \\
 
-%% Relevent classes
-% \textbf{Coursework} &
-% \horizontalLine \\
+    \timeFrame{2014}{2016}{In Progress} &
+    \entry{Machine Learning}{}{}
+          {Developed a classifier for detecting sunset images, optical character recognition software, resistor classification software, and voice recognition software. Independent study on neural networks.}
+          {MATLAB, Neural Networks, Support Vector Machines}
 
-    \timeFrame{2014}{2015}{Twelve weeks} &
-    \generic{Machine Learning}
-            {Developed a classifier for detecting sunset images, optical character recognition software, resistor classification software, and voice recognition software.}
-            {MATLAB, Neural Networks, Support Vector Machines}
+	\timeFrame{2015}{2016}{Ten Weeks} &
+    \entry{Artificial Intelligence}{}{}
+          {Study of searching algorithms, reinforcement learning, machine learning, and cutting edge applications.}
+          {Python, Natural Language Processing}
 
-    \timeFrame{2013}{2014}{Three weeks} &
-    \generic{Programming Language Concepts}
-            {Studied syntax, semantics and design of programming languages and implemented a scheme interpretor.}
-            {Scheme}
+	\timeFrame{2015}{2016}{Ten Weeks} &
+    \entry{Mixed Signal Test and Product Engineering}{}{}
+          {Designed software capable of testing comparators, digital to analog converters, and analog to digital converters.}
+          {C, Automated Test Equipment}
 
-    \timeFrame{2013}{2014}{Ten weeks} &
-    \generic{Data Structures and Algorithm Analysis}
-            {Intensive study of space and time trade-offs of using various data structures and algorithms.}
-            {Java}
+	\timeFrame{2014}{2016}{Twenty Weeks} &
+    \entry{MEMS Modeling and Fabrication}{}{}
+          {Optimization of heat actuator process flow. Study of advanced processing techniques.}
+          {Photoresist Spinner, Electron Beam Evaporator, Mask Aligner, Chemical Etchants}
 
-    \timeFrame{2012}{2013}{Four weeks} &
-    \generic{Computer Architecture}
-            {Designed and implemented multicycle processor and corresponding assembly language. Wrote assembler to convert instructions to the appropriate byte code.}
-            {Verilog, Spartan-3 board, MIPS assembly, x86 assembly, gem5 simulator}
+    \timeFrame{2012}{2015}{Twenty Weeks} &
+    \entry{Computer Architecture}{}{}
+          {Designed and implemented multicycle processor and corresponding assembly language. Wrote assembler to convert instructions to the appropriate byte code. Study of RISC architectures, DSP architectures, and modern out of order processors.}
+          {Verilog, Spartan-3 board, MIPS assembly, x86 assembly, gem5 simulator}
 
-    \timeFrame{2012}{2013}{Three weeks} &
-    \generic{Operating Systems}
-            {Created bare metal operating system with interactive shell and process scheduling algorithm. OS provided basic file manipulation and script running capabilities.}
-            {C, x86 assembly, Bochs Emulator}
+    \timeFrame{2014}{2015}{Ten Weeks} &
+    \entry{Programming Language Concepts}{}{}
+          {Studied syntax, semantics and design of programming languages and implemented a Scheme interpretor.}
+          {Scheme}
 
-    \timeFrame{2012}{2013}{Three weeks} &
-    \generic{Computer Networks}
-            {Developed an HTTP server. Dealt extensively with sockets and network communication state machines.}
-            {C, C\#, Wireshark}
+	\timeFrame{2013}{2015}{Thirty Weeks} &
+    \entry{Signals and System}{}{}
+          {Study of continuous and discreet time signals and systems. Design and analysis of filters and sampling methods.}
+          {Matlab, LabVIEW, Electronics lab bench equipment}
+
+	 \timeFrame{2014}{2015}{Ten Weeks} &
+     \entry{Digital Systems}{}{}
+              {Designed combinational and sequential logic circuits using FPGAs. Developed system which interfaced over VGA to play simple game.}
+              {Verilog}
+
+    \timeFrame{2013}{2014}{Ten Weeks} &
+    \entry{Data Structures and Algorithm Analysis}{}{}
+          {Intensive study of space and time trade-offs of using various data structures and algorithms.}
+          {Java}
+
+     \timeFrame{2013}{2014}{Ten Weeks} &
+     \entry{Embedded System Design}{}{}
+              {Developed digital systems using PIC microcontrollers. Interfaced with both digital and analog peripheral devices. Studied PCB layout and design.}
+              {C, Assembly Language, Eagle PCB Design Software}
+
+    \timeFrame{2012}{2013}{Ten Weeks} &
+    \entry{Operating Systems}{}{}
+          {Created bare metal operating system with interactive shell and process scheduling algorithm. OS provided basic file manipulation and script running capabilities.}
+          {C, x86 assembly, Bochs Emulator}
+
+    \timeFrame{2012}{2013}{Ten Weeks} &
+    \entry{Computer Networks}{}{}
+          {Developed an HTTP server. Dealt extensively with sockets and network communication state machines.}
+          {C, C\#, Wireshark}
+
+	\timeFrame{2012}{2013}{Forty Weeks} &
+    \entry{Circuit Design and Analysis}{}{}
+          {DC/AC Circuits, Electronic Device Modeling, Analog Electronics. Learned and put into practice circuit analysis and construction techniques.}
+          {Electronics lab bench equipment, SPICE}
 
     \timeFrame{2010}{2011}{One month} &
-    \generic{AI Challenge}
-    {Placed 323 out of nearly 8000 contestants in an international programming contest. Implemented algorithm to control a virtualized colony of ants.}
-    {Python}
-
+    \entry{AI Challenge}{}{}
+          {Placed 323 out of nearly 8000 contestants in an international programming contest. Implemented algorithm to control a virtualized colony of ants.}
+          {Python}
+   
 %% Education
-\textbf{Education} &
-\horizontalLine \\
+\textbf{Education} & \horizontalLine \\
 
 	% Masters
     \timeFrame{2015}{2016}{In Progress} &
-    \educationRow{Rose-Hulman Institute of Technology (4.00 GPA)}{Terre Haute, Indiana}
-                 {Master of Science in Electrical Engineering with a focus in computer architecture}
+    \entry{Rose-Hulman Institute of Technology (4.00 GPA)}{}{Terre Haute, Indiana}
+          {Master of Science in Electrical Engineering with a focus in computer architecture and machine learning.}{}
 
     % Bachlors
     \timeFrame{2013}{2015}{Three Years} &
-    \educationRow{Rose-Hulman Institute of Technology (3.64 GPA)}{Terre Haute, Indiana}
-    		     {Bachlor of Science in Computer Engineering, Minor in Computer Science}
-    		     
-	% Arduino Tank
-    % \timeFrame{2010}{2011}{Two weeks} &
-    % \generic{Arduino}
-    % {Constructed a remotely controlled, Arduino powered tank. Used the accelerometer in Android devices to provide directional input.}
-    % {C, Python}
-
-    % \timeFrame{2013}{2014}{Ten weeks} &
-    % \generic{Embedded System Design}
-    %         {Developed digital systems using PIC microcontrollers. Interfaced with both digital and analog peripheral devices. Studied PCB layout and design.}
-    %         {C, Assembly Language, Eagle PCB Design Software}
-
-     % \timeFrame{2013}{2014}{Ten weeks} &
-    % \generic{Continuous Time Signals and Systems}
-    %         {Signal modeling in both time and frequency domain. Design and analysis of filters and sampling methods.}
-    %         {Matlab, Electronics lab bench equipment}
-
-    % \timeFrame{2012}{2014}{Thirty weeks} &
-    % \generic{DC/AC Circuits, Dynamical Systems, Electronic Device Modeling}
-    %         {Learned and put into practice advanced circuit analysis and construction techniques.}
-    %         {Electronics lab bench equipment, Digligent waveform software}    		     
-
-%% Start new page
-% \end{tabularx}
-% \begin{tabularx}{\textwidth}{>{\hsize=.12\hsize}X>{\hsize=.78\hsize}X}
-
+    \entry{Rose-Hulman Institute of Technology (3.64 GPA)}{}{Terre Haute, Indiana}
+    	 {Bachlor of Science in Computer Engineering, Minor in Computer Science.}{}
+    		      
 \end{tabularx}
 
 \vfill\hfill \today
