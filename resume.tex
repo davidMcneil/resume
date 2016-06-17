@@ -1,5 +1,5 @@
-\documentclass[a4paper, 10pt]{article}
-\usepackage[left=1.75cm,right=1.75cm,top=1.75cm,bottom=1.75cm]{geometry}
+\documentclass[letterpaper, 10pt]{article}
+\usepackage[left=2cm,right=2cm,top=1.75cm,bottom=1.75cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage{tabularx}
 \usepackage{enumitem}
@@ -50,13 +50,13 @@
 
 % Draw a horizontal line in the second column
 \newcommand{\horizontalLine}[0] {
-	\noindent\rule{.77\linewidth}{0.4pt}
+	\noindent\rule{.88\linewidth}{0.4pt}
 }
 
 \begin{document}
 \pagenumbering{gobble}
 
-\begin{tabularx}{\linewidth}{>{\hsize=.12\linewidth}X>{\hsize=.77\linewidth}X}
+\begin{tabularx}{\linewidth}{>{\hsize=.13\hsize}X>{\hsize=.87\hsize}X}
 
 %% Header
 {\bfseries\Large David McNeil} &
@@ -67,16 +67,10 @@ Terre Haute, IN 47803\newline
 
 %% Profile
 \textbf{Profile} &
-	{I am a computer engineering major with a strong background in computer science and software development currently pursuing a master's degree in electrical engineering focusing on computer architecture and machine learning. I am seeking a full time position starting in the summer of 2016 designing systems which integrate machine learning and data science.} \\
+	{I am a computer engineering major with a strong background in computer science and software development currently pursuing a master's degree in electrical engineering focusing on machine learning and computer architecture. I am seeking a full time position starting in the summer of 2016 implementing systems which integrate machine learning.} \\
 
 %% Experience
 \textbf{Experience} & \horizontalLine \\
-
-	% Master's Work
-    \timeFrame{2015}{2016}{In Progress} &
-    \entry{Master's Thesis}{}{Terre Haute, Indiana}
-    {Development of a computer architecture simulator for neuroscience research and implementing neural networks.}
-    {C, Flex, Bison, Hodgkin-Huxley Model, Neural Networks}
 
     % Indesign
     \timeFrame{2014}{2015}{Three Months} &
@@ -114,8 +108,16 @@ Terre Haute, IN 47803\newline
 
     \timeFrame{2014}{2016}{In Progress} &
     \entry{Machine Learning}{}{}
-          {Developed a classifier for detecting sunset images, optical character recognition software, resistor classification software, and voice recognition software. Independent study on neural networks.}
-          {MATLAB, Neural Networks, Support Vector Machines}
+          {Developed a classifier for detecting sunset images, optical character recognition software, resistor classification software, and voice recognition software. Certification in machine learning
+from Stanford University.}
+          {TensorFlow, MATLAB/Octave, Neural Networks, Support Vector Machines}
+
+	% Master's Work
+    \timeFrame{2015}{2016}{In Progress} &
+    \entry{Master's Thesis}{}{Terre Haute, Indiana}
+    {Development of a computer architecture simulator, assembler, and compiler for neuroscience research.}
+    {C, Flex, Bison, Hodgkin-Huxley Model}
+
 
 	\timeFrame{2015}{2016}{Ten Weeks} &
     \entry{Artificial Intelligence}{}{}
@@ -124,7 +126,7 @@ Terre Haute, IN 47803\newline
 
 	\timeFrame{2015}{2016}{Ten Weeks} &
     \entry{Mixed Signal Test and Product Engineering}{}{}
-          {Designed software capable of testing comparators, digital to analog converters, and analog to digital converters.}
+          {Developed software capable of testing comparators, digital to analog converters, and analog to digital converters.}
           {C, Automated Test Equipment}
 
 	\timeFrame{2014}{2016}{Twenty Weeks} &
@@ -134,7 +136,7 @@ Terre Haute, IN 47803\newline
 
     \timeFrame{2012}{2015}{Twenty Weeks} &
     \entry{Computer Architecture}{}{}
-          {Designed and implemented multicycle processor and corresponding assembly language. Wrote assembler to convert instructions to the appropriate byte code. Study of RISC architectures, DSP architectures, and modern out of order processors.}
+          {Designed and implemented multicycle processor and corresponding assembly language. Study of RISC architectures, DSP architectures, and modern out of order processors.}
           {Verilog, Spartan-3 board, MIPS assembly, x86 assembly, gem5 simulator}
 
     \timeFrame{2014}{2015}{Ten Weeks} &
@@ -142,15 +144,15 @@ Terre Haute, IN 47803\newline
           {Studied syntax, semantics and design of programming languages and implemented a Scheme interpretor.}
           {Scheme}
 
-	\timeFrame{2013}{2015}{Thirty Weeks} &
-    \entry{Signals and System}{}{}
-          {Study of continuous and discreet time signals and systems. Design and analysis of filters and sampling methods.}
-          {Matlab, LabVIEW, Electronics lab bench equipment}
-
 	 \timeFrame{2014}{2015}{Ten Weeks} &
      \entry{Digital Systems}{}{}
               {Designed combinational and sequential logic circuits using FPGAs. Developed system which interfaced over VGA to play simple game.}
               {Verilog}
+
+	\timeFrame{2013}{2015}{Thirty Weeks} &
+    \entry{Signals and System}{}{}
+          {Study of continuous and discreet time signals and systems. Design and analysis of filters and sampling methods.}
+          {Matlab, LabVIEW, Electronics lab bench equipment}
 
     \timeFrame{2013}{2014}{Ten Weeks} &
     \entry{Data Structures and Algorithm Analysis}{}{}
@@ -187,7 +189,7 @@ Terre Haute, IN 47803\newline
 
 	% Masters
     \timeFrame{2015}{2016}{In Progress} &
-    \entry{Rose-Hulman Institute of Technology (4.00 GPA)}{}{Terre Haute, Indiana}
+    \entry{Rose-Hulman Institute of Technology (3.94 GPA)}{}{Terre Haute, Indiana}
           {Master of Science in Electrical Engineering with a focus in computer architecture and machine learning.}{}
 
     % Bachlors
