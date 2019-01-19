@@ -16,7 +16,14 @@
 % #2 End Year
 % #3 Length of time
 \newcommand{\timeFrame}[3] {
-	#1 - #2 \newline {\small \textit{#3}}
+  \if\relax\detokenize{#2}\relax
+    #1
+    % {\space\space\space\space\space#1}
+  \else
+    #1 - #2
+  \fi
+  \newline
+  \small \textit{#3}
 }
 
 %% Work experience
@@ -26,31 +33,31 @@
 % #4 Description
 % #5 Technologies used
 \newcommand{\entry}[5] {
-	% #1 Employeer/Header
-	\textbf{#1}
-	% #2 Title
-	\if\relax\detokenize{#2}\relax
-    \else
-    	- \textsc{#2}
-    \fi	
-	% #3 Location
-	\if\relax\detokenize{#3}\relax
-    \else
-    	- \textsc{#3}
-    \fi	  
-    % #4 Description
-	\newline #4
-	% #5 Technologies used
-	\if\relax\detokenize{#5}\relax
-    \else
-    	\newline \textbf{Technology Used:} #5
-	\fi
-	\\
+  % #1 Employeer/Header
+  \textbf{#1}
+  % #2 Title
+  \if\relax\detokenize{#2}\relax
+  \else
+       - \textsc{#2}
+  \fi
+  % #3 Location
+  \if\relax\detokenize{#3}\relax
+  \else
+      - \textsc{#3}
+  \fi
+  % #4 Description
+  \newline #4
+  % #5 Technologies used
+  \if\relax\detokenize{#5}\relax
+  \else
+      \newline \textbf{Technology:} #5
+  \fi
+  \\
 }
 
 % Draw a horizontal line in the second column
 \newcommand{\horizontalLine}[0] {
-	\noindent\rule{.88\linewidth}{0.4pt}
+    \noindent\rule{.88\linewidth}{0.4pt}
 }
 
 \begin{document}
@@ -60,171 +67,259 @@
 
 %% Header
 {\bfseries\Large David McNeil} &
-%5500 Wabash Avenue, CM 3324\newline
-%Terre Haute, IN 47803\newline
 \href{https://github.com/davidMcneil}{https://github.com/davidMcneil}\newline
 \href{mailto:mcneil.david2@gmail.com}{mcneil.david2@gmail.com}\newline
 (314) 308-1596\\[10pt]
 
 %% Profile
 \textbf{Profile} &
-	{I am a graduate of Rose-Hulman Institute of Technology with a bachelor's in computer engineering and a master's in electrical engineering focusing on machine learning and computer architecture. I am currently employed at n$\sim$ask incorporated designing, developing, and implementing digital signal processing applications, analyst tools, and supporting architectures for the intelligence and defense communities.} \\
+{I am seeking a full time position applying the Rust programming language to the development of reliable and efficient software. I am an advocate of iterative design ensuring the continuous delivery of tested, documented, robust software. One of my greatest strengths is the ability to take a problem or technology, study it in general, focus in depth on relevant aspects, and distill this knowledge into a practical solution. Examples where I have applied this process include: machine learning, web development, and containerization frameworks.
+} \\
 
 %% Experience
 \textbf{Experience} & \horizontalLine \\
 
-	% n~ask
-    \timeFrame{2016}{Present}{Current} &
-    \entry{n$\sim$ask incorporated}{Member of the Technical Staff}{Aurora, Colorado}
-    {Design, develop, and implement digital signal processing applications, analyst tools, and supporting architectures for the intelligence and defense communities.}
-    {C, C++, Python}
+% n~ask
+\timeFrame{2016}{Present}{Three Years} &
+\entry{n$\sim$ask incorporated}
+  {Member of the Technical Staff}
+  {Aurora, Colorado}
+  {
+  - Active Top Secret/Sensitive Compartmented Information (TS/SCI) clearance. \newline
+  - Designed, developed, and maintained an operational system which ingests terabytes of data a day processed by several DSP and geolocation algorithms producing millions of results. The system runs using a containerized architecture consisting of hundreds of processes distributed on tens of machines located across the world. The system produces millions of metrics a day allowing for efficient monitoring and diagnostics. I created several web clients for management and visualization of the system as well as a native client used extensively by analysts. \newline
+  - Developed a canvas based mapping library for efficiently rendering millions of features. \newline
+  - Designed and developed the frontend for mission management software. \newline
+  - Created a test harness for running hundreds of system tests in an analytics framework.
+  }
+  {C, C++, Docker, Go, InfluxDB, Java, Nomad, MongoDB, Python, Qt, React, Rust, TypeScript}
 
-    % Indesign
-    \timeFrame{2014}{2015}{Three Months} &
-    \entry{Indesign, LLC}{Firmware Engineer Intern}{Indianapolis, Indiana}
-    {Developed an embedded system which interfaced with numerous sensors and actuators.}
-    {C, MSP430, Hall Effect Sensors, Current Sensors, RFID, Servo Motors}
+  % Indesign
+\timeFrame{2014}{2015}{Three Months} &
+\entry{Indesign, LLC}
+  {Firmware Engineer Intern}
+  {Indianapolis, Indiana}
+  {- Developed an embedded system which interfaced with numerous sensors and actuators.}
+  {C, Current Sensor, Hall Effect Sensor, MSP430, RFID, Servo Motor}
 
-    % NSWC
-    \timeFrame{2014}{2015}{Nine Months} &
-    \entry{Naval Surface Warfare Center}{Senior Design Project}{Crane, Indiana}
-    {Developed a system to predict location based on RF spectrum data.}
-    {Python, SQLite, GPS, Software Defined Radio}
+% NSWC
+\timeFrame{2014}{2015}{Nine Months} &
+\entry{Naval Surface Warfare Center}
+  {Senior Design Project}
+  {Crane, Indiana}
+  {- Designed and developed a system to predict location based on RF spectrum data.}
+  {GPS, Python, Software Defined Radio, SQLite}
 
-	% Garmin
-    \timeFrame{2013}{2014}{Three Months} &
-    \entry{Garmin Ltd.}{Low Level Software Engineer Intern}{Olathe, Kansas}
-    {Developed software for operating system profiling. Updated, maintained, and debugged extensive C/C++ code base.}
-    {C, C++, Lauterbach Debugger}
+% Garmin
+\timeFrame{2013}{2014}{Three Months} &
+\entry{Garmin Ltd.}
+  {Low Level Software Engineer Intern}
+  {Olathe, Kansas}
+  {
+  - Developed software for operating system profiling during route execution. \newline
+  - Updated, maintained, and debugged extensive C/C++ code base.
+  }
+  {C, C++, Hardware Debugger}
 
-	% Cetani
-    \timeFrame{2012}{2013}{Three Months} &
-    \entry{Cetani}{Software Development Intern}{Carmel, Indiana}
-    {Developed a server for issuing hospital notifications and pushing real-time changes in generic data to front end user interfaces.}
-    {Ruby, Rails, C\#, Javascript, Node.js, SQLServer, HTML, CSS}
+% Cetani
+\timeFrame{2012}{2013}{Three Months} &
+\entry{Cetani}
+  {Software Development Intern}
+  {Carmel, Indiana}
+  {
+  - Developed a server for issuing hospital notifications and pushing real-time changes to front end user interfaces. \newline
+  - Maintained and implemented new features in a Ruby on Rails application.
+  }
+  {C\#, HTML, CSS, Javascript, Node.js, Rails, Ruby, SQLServer}
 
-	% Oasis Digital
-    \timeFrame{2011}{2012}{Three months} &
-    \entry{Oasis Digital}{Software Development Intern}{Chesterfield, Missouri}
-    {Developed a work management system from the ground up.}
-    {Node.js, Javascript, Backbone.js, PostgreSQL, HTML, CSS}
+% Oasis Digital
+\timeFrame{2011}{2012}{Three months} &
+\entry{Oasis Digital}
+  {Software Development Intern}
+  {Chesterfield, Missouri}
+  {-Designed a work management system with a Node.js backend and responsive frontend.}
+  {Backbone.js, CSS, HTML, Javascript, Node.js, PostgreSQL}
 
 
 % Projects and Coursework work
 \textbf{Projects  \& Coursework} & \horizontalLine \\
 
-	% Master's Work
-    \timeFrame{2015}{2016}{One Year} &
-    \entry{Master's Thesis}{}{Terre Haute, Indiana}
-    {Developed a naturally extensible, custom instruction set architecture and the corresponding assembler, compiler, and simulator.}
-    {C, C++, Flex, Bison, LLVM}
+\timeFrame{2018}{}{Eighty Hours} &
+\entry{Courier}
+  {}
+  {}
+  {
+  - A pub/sub service with an HTTP, JSON API and web based statistics and management page. \newline
+  -Clients for C++, Go, Python, and Rust.
+  }
+  {Inferno.js, Rust, Typescript}
 
-	\timeFrame{2015}{2016}{Ten Weeks} &
-    \entry{Compiler Construction}{}{}
-          {Developed a Java compiler.}
-          {Java, ANTLR, LLVM}
-          
-    \timeFrame{2015}{2016}{Ten Weeks} &
-    \entry{Advanced Microcomputers}{}{}
-          {Developed systems which integrated FPGA and microprocessor components.}
-          {C, Verilog}
-          
-    \timeFrame{2015}{2016}{Ten Weeks} &
-    \entry{Intro to Random Process Estimation}{}{}
-          {Study of techniques to analyze and characterize random processes.}
-          {MATLAB}
+\timeFrame{2017}{}{Forty Hours} &
+\entry{The Rusty Web}
+  {}
+  {}
+  {
+  - One of the first complete resources detailing how to integrate Rust, compiled to asm.js or WebAssembly, into a web application. \newline
+  - Benchmarked implementations of the k-means clustering algorithm in different browsers.
+  }
+  {asm.js, JavaScript, Rust, WebAssembly}
 
-	\timeFrame{2015}{2016}{Ten Weeks} &
-    \entry{DSP System Design}{}{}
-          {Study of finite word length effects in DSP systems. Implemented SSB communication system.}
-          {MATLAB, LabVIEW}
+\timeFrame{2015}{2016}{One Year} &
+\entry{Master's Thesis}
+  {}
+  {}
+  {- Developed a custom RISC instruction set architecture with assembler, compiler, and simulator.}
+  {Bison, C++, Flex, LLVM}
 
-	\timeFrame{2015}{2016}{Ten Weeks} &
-    \entry{Artificial Intelligence}{}{}
-          {Study of searching algorithms, reinforcement learning, machine learning, and cutting edge applications.}
-          {Python, Natural Language Processing}
+\timeFrame{2015}{2016}{Thirty Weeks} &
+\entry{Machine Learning}
+  {}
+  {}
+  {
+  - Developed a sunset image classifier, optical character recognition software, resistor classifier, and voice recognition software. \newline
+  - Certification in machine learning from Stanford University.
+  }
+  {Lua, MATLAB/Octave, Neural Networks, Python, Support Vector Machines, TensorFlow, Torch}
 
-	\timeFrame{2015}{2016}{Ten Weeks} &
-    \entry{Mixed Signal Test and Product Engineering}{}{}
-          {Developed software capable of testing comparators, digital to analog converters, and analog to digital converters.}
-          {C, Automated Test Equipment}
+\timeFrame{2015}{2016}{Ten Weeks} &
+\entry{Artificial Intelligence}
+  {}
+  {}
+  {- Study of search algorithms, reinforcement learning, machine learning, and applications.}
+  {Natural Language Processing, Python}
 
-    \timeFrame{2014}{2016}{Thirty Weeks} &
-    \entry{Machine Learning}{}{}
-          {Developed a classifier for detecting sunset images, optical character recognition software, resistor classification software, and voice recognition software. Certification in machine learning
-from Stanford University.}
-          {TensorFlow, MATLAB/Octave, Neural Networks, Support Vector Machines}
+\timeFrame{2015}{2016}{Ten Weeks} &
+\entry{Compiler Construction}
+  {}
+  {}
+  {- Developed a Java subset to LLVM bytecode compiler.}
+  {ANTLR, Java, LLVM}
 
-	\timeFrame{2014}{2016}{Twenty Weeks} &
-    \entry{MEMS Modeling and Fabrication}{}{}
-          {Optimization of heat actuator process flow. Study of advanced processing techniques.}
-          {Photoresist Spinner, Electron Beam Evaporator, Mask Aligner, Chemical Etchants}
+\timeFrame{2015}{2016}{Ten Weeks} &
+\entry{DSP System Design}
+  {}
+  {}
+  {
+  - Study of finite word length effects in DSP systems. \newline
+  - Implemented single sideband communication system.
+  }
+  {LabVIEW, MATLAB}
 
-    \timeFrame{2012}{2015}{Thirty Weeks} &
-    \entry{Computer Architecture}{}{}
-          {Designed and implemented multicycle processor and corresponding assembly language. Study of RISC architectures, DSP architectures, and modern out of order processors.}
-          {Verilog, Spartan-3 board, MIPS assembly, x86 assembly, gem5 simulator}
+\timeFrame{2015}{2016}{Twenty Weeks} &
+\entry{MEMS Modeling and Fabrication}
+  {}
+  {}
+  {- Optimization of heat actuator process flow.}
+  {Etchants, Electron Beam Evaporator, Photoresist Spinner, Mask Aligner}
 
-    \timeFrame{2014}{2015}{Ten Weeks} &
-    \entry{Programming Language Concepts}{}{}
-          {Studied syntax, semantics and design of programming languages and implemented a Scheme interpretor.}
-          {Scheme}
+\timeFrame{2012}{2015}{Ten Weeks} &
+\entry{Data Structures and Algorithm Analysis}
+  {}
+  {}
+  {- Intensive study of space and time trade-offs of using various data structures and algorithms.}
+  {Java}
 
-	 \timeFrame{2014}{2015}{Ten Weeks} &
-     \entry{Digital Systems}{}{}
-              {Designed combinational and sequential logic circuits using FPGAs. Developed system which interfaced over VGA to play simple game.}
-              {Verilog}
+\timeFrame{2012}{2015}{Ten Weeks} &
+\entry{Programming Language Concepts}
+  {}
+  {}
+  {
+  - Studied syntax, semantics, and design of programming languages. \newline
+  - Implemented a Scheme interpreter.
+  }
+  {Scheme}
 
-	\timeFrame{2013}{2015}{Thirty Weeks} &
-    \entry{Signals and System}{}{}
-          {Study of continuous and discreet time signals and systems. Design and analysis of filters and sampling methods.}
-          {Matlab, LabVIEW, Electronics lab bench equipment}
+\timeFrame{2012}{2015}{Ten Weeks} &
+\entry{Computer Networks}
+  {}
+  {}
+  {- Developed an HTTP server dealing extensively with sockets and network communication state machines.}
+  {C, C\#, Wireshark}
 
-    \timeFrame{2013}{2014}{Ten Weeks} &
-    \entry{Data Structures and Algorithm Analysis}{}{}
-          {Intensive study of space and time trade-offs of using various data structures and algorithms.}
-          {Java}
+\timeFrame{2012}{2015}{Ten Weeks} &
+\entry{Operating Systems}
+  {}
+  {}
+  {- Created a bare metal operating system with: interactive shell, process scheduling and execution, and basic file manipulation.}
+  {Bochs Emulator, C, Mips, x86}
 
-     \timeFrame{2013}{2014}{Ten Weeks} &
-     \entry{Embedded System Design}{}{}
-              {Developed digital systems using PIC micro-controllers. Interfaced with both digital and analog peripheral devices. Studied PCB layout and design.}
-              {C, Assembly Language, Eagle PCB Design Software}
+\timeFrame{2012}{2015}{Twenty Weeks} &
+\entry{Computer Architecture}
+  {}
+  {}
+  {
+  - Study of RISC architectures, DSP architectures, and modern, out-of-order processors. \newline
+  - Designed and implemented a multicycle processor and assembly language.
+  }
+  {gem5 simulator, MIPS assembly, Spartan-3 board, Verilog, x86 assembly, }
 
-    \timeFrame{2012}{2013}{Ten Weeks} &
-    \entry{Operating Systems}{}{}
-          {Created bare metal operating system with interactive shell and process scheduling algorithm. OS provided basic file manipulation and script running capabilities.}
-          {C, x86 assembly, Bochs Emulator}
+\timeFrame{2012}{2015}{Thirty Weeks} &
+\entry{Signals and Systems}
+  {}
+  {}
+  {
+  - Study of continuous and discreet time signals and systems. \newline
+  - Design and analysis of filters and sampling methods.
+  }
+  {Electronics lab bench equipment, LabVIEW, Matlab}
 
-    \timeFrame{2012}{2013}{Ten Weeks} &
-    \entry{Computer Networks}{}{}
-          {Developed an HTTP server. Dealt extensively with sockets and network communication state machines.}
-          {C, C\#, Wireshark}
+\timeFrame{2012}{2015}{Twenty Weeks} &
+\entry{Embedded Systems}
+  {}
+  {}
+  {- Developed digital systems using PIC microcontrollers interfacing with digital and analog peripherals.}
+  {C, PCB Design Software, PIC Assembly}
 
-	\timeFrame{2012}{2013}{Forty Weeks} &
-    \entry{Circuit Design and Analysis}{}{}
-          {DC/AC Circuits, Electronic Device Modeling, Analog Electronics. Learned and put into practice circuit analysis and construction techniques.}
-          {Electronics lab bench equipment, SPICE}
+\timeFrame{2010}{}{One month} &
+\entry{Ants AI Challenge}
+  {}
+  {}
+  {- Placed 323 out of nearly 8000 contestants in an international programming contest to implement an algorithm controling a virtualized colony of ants.}
+  {Python}
 
-    \timeFrame{2010}{2011}{One month} &
-    \entry{AI Challenge}{}{}
-          {Placed 323 out of nearly 8000 contestants in an international programming contest. Implemented algorithm to control a virtualized colony of ants.}
-          {Python}
-   
+%    \timeFrame{2015}{2016}{Ten Weeks} &
+%    \entry{Advanced Microcomputers}{}{}
+%          {Developed systems which integrated FPGA and microprocessor components.}
+%          {C, Verilog}
+%
+%    \timeFrame{2015}{2016}{Ten Weeks} &
+%    \entry{Intro to Random Process Estimation}{}{}
+%          {Study of techniques to analyze and characterize random processes.}
+%          {MATLAB}
+%
+% \timeFrame{2012}{2013}{Forty Weeks} &
+%    \entry{Circuit Design and Analysis}{}{}
+%          {DC/AC Circuits, Electronic Device Modeling, Analog Electronics. Learned and put into practice circuit analysis and construction techniques.}
+%          {Electronics lab bench equipment, SPICE}
+%
+% \timeFrame{2014}{2015}{Ten Weeks} &
+%   \entry{Digital Systems}{}{}
+%            {Designed combinational and sequential logic circuits using FPGAs. Developed system which interfaced over VGA to play simple game.}
+%            {Verilog}
+%
+% \timeFrame{2015}{2016}{Ten Weeks} &
+%    \entry{Mixed Signal Test and Product Engineering}{}{}
+%          {Developed software capable of testing comparators, digital to analog converters, and analog to digital converters.}
+%          {C, Automated Test Equipment}
+
 %% Education
 \textbf{Education} & \horizontalLine \\
 
-	% Masters
-    \timeFrame{2015}{2016}{Ome Year} &
-    \entry{Rose-Hulman Institute of Technology %(3.94 GPA)
-    	   }{}{Terre Haute, Indiana}
-          {Master of Science in Electrical Engineering with a focus in computer architecture and machine learning.}{}
+% Masters (3.94 GPA)
+\timeFrame{2015}{2016}{Ome Year} &
+\entry{Rose-Hulman Institute of Technology}
+  {}
+  {Terre Haute, Indiana}
+  {Master of Science in Electrical Engineering with a focus on computer architecture.}
+  {}
 
-    % Bachlors
-    \timeFrame{2013}{2015}{Three Years} &
-    \entry{Rose-Hulman Institute of Technology %(3.64 GPA)
-    	   }{}{Terre Haute, Indiana}
-    	 {Bachelor of Science in Computer Engineering, Minor in Computer Science.}{}
-    		      
+% Bachlors  (3.64 GPA)
+\timeFrame{2012}{2015}{Three Years} &
+\entry{Rose-Hulman Institute of Technology}
+  {}
+  {Terre Haute, Indiana}
+  {Bachelor of Science in Computer Engineering, Minor in Computer Science.}
+  {}
+
 \end{tabularx}
 
 \vfill\hfill \today
