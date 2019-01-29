@@ -1,15 +1,20 @@
-\documentclass[letterpaper, 10pt]{article}
-\usepackage[left=2cm,right=2cm,top=1.75cm,bottom=1.75cm]{geometry}
-\usepackage[hidelinks]{hyperref}
-\usepackage{tabularx}
+\documentclass[10pt]{article}
 \usepackage{enumitem}
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=0.5cm]{geometry}
+\usepackage[hidelinks]{hyperref}
 \usepackage[none]{hyphenat}
 \usepackage{ltablex}
+\usepackage{setspace}
+\usepackage{tabularx}
 
 % Change itemize bullet type
 \renewcommand{\labelitemi}{$\_$}
+
 % Change itemize spacing
 \setlist[itemize]{noitemsep, topsep=0pt, leftmargin=*}
+
+% Change line spacing
+\renewcommand{\baselinestretch}{1.08}
 
 % TimeFrame
 % #1 Start Year
@@ -23,7 +28,7 @@
     #1 - #2
   \fi
   \newline
-  \small \textit{#3}
+  \scriptsize \textit{#3}
 }
 
 %% Work experience
@@ -50,46 +55,46 @@
   % #5 Technologies used
   \if\relax\detokenize{#5}\relax
   \else
-      \newline \textbf{Technology:} #5
+      \newline \textsc{Technology:} #5
   \fi
   \\
 }
 
 % Draw a horizontal line in the second column
 \newcommand{\horizontalLine}[0] {
-    \noindent\rule{.88\linewidth}{0.4pt}
+    \noindent\rule{.90\linewidth}{0.4pt}
 }
 
 \begin{document}
 \pagenumbering{gobble}
 
-\begin{tabularx}{\linewidth}{>{\hsize=.13\hsize}X>{\hsize=.87\hsize}X}
+\begin{tabularx}{\linewidth}{>{\hsize=.10\hsize}X>{\hsize=.90\hsize}X}
 
 %% Header
-{\bfseries\Large David McNeil} &
-\href{https://github.com/davidMcneil}{https://github.com/davidMcneil}\newline
-\href{mailto:mcneil.david2@gmail.com}{mcneil.david2@gmail.com}\newline
-(314) 308-1596\\[10pt]
+{\bfseries\large David McNeil} &
+(314) 308-1596\newline
+{\href{mailto:mcneil.david2@gmail.com}{mcneil.david2@gmail.com}}\newline
+\href{https://github.com/davidMcneil}{https://github.com/davidMcneil}\\[5pt]
 
 %% Profile
 \textbf{Profile} &
-{I am seeking a full time position applying the Rust programming language to the development of reliable and efficient software. I am an advocate of iterative design ensuring the continuous delivery of tested, documented, robust software. One of my greatest strengths is the ability to take a problem or technology, study it in general, focus in depth on relevant aspects, and distill this knowledge into a practical solution. Examples where I have applied this process include: machine learning, web development, and containerization frameworks.
+{I am a full-stack software engineer who advocates iterative development and continuous deployment. My programming language of choice is Rust for its efficiency and reliability, but I am also proficient in C++, TypeScript, Go, and Python.
 } \\
 
 %% Experience
 \textbf{Experience} & \horizontalLine \\
 
 % n~ask
-\timeFrame{2016}{Present}{Three Years} &
-\entry{n$\sim$ask incorporated}
+\timeFrame{2016}{Now}{Three Years} &
+\entry{n$\sim$ask Incorporated}
   {Member of the Technical Staff}
   {Aurora, Colorado}
   {
   - Active Top Secret/Sensitive Compartmented Information (TS/SCI) clearance. \newline
-  - Designed, developed, and maintained an operational system which ingests terabytes of data a day processed by several DSP and geolocation algorithms producing millions of results. The system runs using a containerized architecture consisting of hundreds of processes distributed on tens of machines located across the world. The system produces millions of metrics a day allowing for efficient monitoring and diagnostics. I created several web clients for management and visualization of the system as well as a native client used extensively by analysts. \newline
-  - Developed a canvas based mapping library for efficiently rendering millions of features. \newline
+  - Designed, developed, and maintained an operational system which ingests terabytes of data a day, processed by DSP and geolocation algorithms, producing millions of results. The system runs using a containerized architecture consisting of hundreds of processes distributed on tens of machines located across the world. Several web clients are used for system management and a native client is used extensively by analysts. \newline
+  - Developed a canvas based JavaScript mapping library for efficiently rendering millions of features. \newline
   - Designed and developed the frontend for mission management software. \newline
-  - Created a test harness for running hundreds of system tests in an analytics framework.
+  - Created a test harness for running hundreds of system tests for an analytics framework.
   }
   {C, C++, Docker, Go, InfluxDB, Java, Nomad, MongoDB, Python, Qt, React, Rust, TypeScript}
 
@@ -99,7 +104,7 @@
   {Firmware Engineer Intern}
   {Indianapolis, Indiana}
   {- Developed an embedded system which interfaced with numerous sensors and actuators.}
-  {C, Current Sensor, Hall Effect Sensor, MSP430, RFID, Servo Motor}
+  {C, Current Sensor, Hall Effect Sensor, MSP430, RFID Tags, Servo Motor}
 
 % NSWC
 \timeFrame{2014}{2015}{Nine Months} &
@@ -126,10 +131,10 @@
   {Software Development Intern}
   {Carmel, Indiana}
   {
-  - Developed a server for issuing hospital notifications and pushing real-time changes to front end user interfaces. \newline
+  - Developed a server for pushing real-time hospital notifications to a front end user interfaces. \newline
   - Maintained and implemented new features in a Ruby on Rails application.
   }
-  {C\#, HTML, CSS, Javascript, Node.js, Rails, Ruby, SQLServer}
+  {C\#, HTML, CSS, JavaScript, Node.js, Rails, Ruby, SQLServer}
 
 % Oasis Digital
 \timeFrame{2011}{2012}{Three months} &
@@ -137,11 +142,11 @@
   {Software Development Intern}
   {Chesterfield, Missouri}
   {-Designed a work management system with a Node.js backend and responsive frontend.}
-  {Backbone.js, CSS, HTML, Javascript, Node.js, PostgreSQL}
+  {Backbone.js, CSS, HTML, JavaScript, Node.js, PostgreSQL}
 
 
-% Projects and Coursework work
-\textbf{Projects  \& Coursework} & \horizontalLine \\
+% Projects
+\textbf{Projects} & \horizontalLine \\
 
 \timeFrame{2018}{}{Eighty Hours} &
 \entry{Courier}
@@ -159,7 +164,7 @@
   {}
   {
   - One of the first complete resources detailing how to integrate Rust, compiled to asm.js or WebAssembly, into a web application. \newline
-  - Benchmarked implementations of the k-means clustering algorithm in different browsers.
+  - Benchmarked various implementations of the k-means clustering algorithm in different browsers.
   }
   {asm.js, JavaScript, Rust, WebAssembly}
 
@@ -175,106 +180,105 @@
   {}
   {}
   {
-  - Developed a sunset image classifier, optical character recognition software, resistor classifier, and voice recognition software. \newline
-  - Certification in machine learning from Stanford University.
+  - Developed a sunset image classifier, optical character recognition software, resistor classifier, voice recognition software, and completed a certification program from Stanford University.
   }
-  {Lua, MATLAB/Octave, Neural Networks, Python, Support Vector Machines, TensorFlow, Torch}
+  {MATLAB/Octave, Neural Networks, Python, Support Vector Machines, TensorFlow, Torch}
 
-\timeFrame{2015}{2016}{Ten Weeks} &
-\entry{Artificial Intelligence}
-  {}
-  {}
-  {- Study of search algorithms, reinforcement learning, machine learning, and applications.}
-  {Natural Language Processing, Python}
+% \timeFrame{2015}{2016}{Ten Weeks} &
+% \entry{Artificial Intelligence}
+%   {}
+%   {}
+%   {- Study of search algorithms, reinforcement learning, machine learning, and applications.}
+%   {Natural Language Processing, Python}
 
-\timeFrame{2015}{2016}{Ten Weeks} &
-\entry{Compiler Construction}
-  {}
-  {}
-  {- Developed a Java subset to LLVM bytecode compiler.}
-  {ANTLR, Java, LLVM}
+% \timeFrame{2015}{2016}{Ten Weeks} &
+% \entry{Compiler Construction}
+%   {}
+%   {}
+%   {- Developed a Java subset to LLVM bytecode compiler.}
+%   {ANTLR, Java, LLVM}
 
-\timeFrame{2015}{2016}{Ten Weeks} &
-\entry{DSP System Design}
-  {}
-  {}
-  {
-  - Study of finite word length effects in DSP systems. \newline
-  - Implemented single sideband communication system.
-  }
-  {LabVIEW, MATLAB}
+% \timeFrame{2015}{2016}{Ten Weeks} &
+% \entry{DSP System Design}
+%   {}
+%   {}
+%   {
+%   - Study of finite word length effects in DSP systems. \newline
+%   - Implemented single sideband communication system.
+%   }
+%   {LabVIEW, MATLAB}
 
-\timeFrame{2015}{2016}{Twenty Weeks} &
-\entry{MEMS Modeling and Fabrication}
-  {}
-  {}
-  {- Optimization of heat actuator process flow.}
-  {Etchants, Electron Beam Evaporator, Photoresist Spinner, Mask Aligner}
+% \timeFrame{2015}{2016}{Twenty Weeks} &
+% \entry{MEMS Modeling and Fabrication}
+%   {}
+%   {}
+%   {- Optimization of heat actuator process flow.}
+%   {Etchants, Electron Beam Evaporator, Photoresist Spinner, Mask Aligner}
 
-\timeFrame{2012}{2015}{Ten Weeks} &
-\entry{Data Structures and Algorithm Analysis}
-  {}
-  {}
-  {- Intensive study of space and time trade-offs of using various data structures and algorithms.}
-  {Java}
+% \timeFrame{2012}{2015}{Ten Weeks} &
+% \entry{Data Structures and Algorithm Analysis}
+%   {}
+%   {}
+%   {- Intensive study of space and time trade-offs of using various data structures and algorithms.}
+%   {Java}
 
-\timeFrame{2012}{2015}{Ten Weeks} &
-\entry{Programming Language Concepts}
-  {}
-  {}
-  {
-  - Studied syntax, semantics, and design of programming languages. \newline
-  - Implemented a Scheme interpreter.
-  }
-  {Scheme}
+% \timeFrame{2012}{2015}{Ten Weeks} &
+% \entry{Programming Language Concepts}
+%   {}
+%   {}
+%   {
+%   - Studied syntax, semantics, and design of programming languages. \newline
+%   - Implemented a Scheme interpreter.
+%   }
+%   {Scheme}
 
-\timeFrame{2012}{2015}{Ten Weeks} &
-\entry{Computer Networks}
-  {}
-  {}
-  {- Developed an HTTP server dealing extensively with sockets and network communication state machines.}
-  {C, C\#, Wireshark}
+% \timeFrame{2012}{2015}{Ten Weeks} &
+% \entry{Computer Networks}
+%   {}
+%   {}
+%   {- Developed an HTTP server dealing extensively with sockets and network communication state machines.}
+%   {C, C\#, Wireshark}
 
-\timeFrame{2012}{2015}{Ten Weeks} &
-\entry{Operating Systems}
-  {}
-  {}
-  {- Created a bare metal operating system with: interactive shell, process scheduling and execution, and basic file manipulation.}
-  {Bochs Emulator, C, Mips, x86}
+% \timeFrame{2012}{2015}{Ten Weeks} &
+% \entry{Operating Systems}
+%   {}
+%   {}
+%   {- Created a bare metal operating system with: interactive shell, process scheduling and execution, and basic file manipulation.}
+%   {Bochs Emulator, C, Mips, x86}
 
-\timeFrame{2012}{2015}{Twenty Weeks} &
-\entry{Computer Architecture}
-  {}
-  {}
-  {
-  - Study of RISC architectures, DSP architectures, and modern, out-of-order processors. \newline
-  - Designed and implemented a multicycle processor and assembly language.
-  }
-  {gem5 simulator, MIPS assembly, Spartan-3 board, Verilog, x86 assembly, }
+% \timeFrame{2012}{2015}{Twenty Weeks} &
+% \entry{Computer Architecture}
+%   {}
+%   {}
+%   {
+%   - Study of RISC architectures, DSP architectures, and modern, out-of-order processors. \newline
+%   - Designed and implemented a multicycle processor and assembly language.
+%   }
+%   {gem5 simulator, MIPS assembly, Spartan-3 board, Verilog, x86 assembly, }
 
-\timeFrame{2012}{2015}{Thirty Weeks} &
-\entry{Signals and Systems}
-  {}
-  {}
-  {
-  - Study of continuous and discreet time signals and systems. \newline
-  - Design and analysis of filters and sampling methods.
-  }
-  {Electronics lab bench equipment, LabVIEW, Matlab}
+% \timeFrame{2012}{2015}{Thirty Weeks} &
+% \entry{Signals and Systems}
+%   {}
+%   {}
+%   {
+%   - Study of continuous and discreet time signals and systems. \newline
+%   - Design and analysis of filters and sampling methods.
+%   }
+%   {Electronics lab bench equipment, LabVIEW, Matlab}
 
-\timeFrame{2012}{2015}{Twenty Weeks} &
-\entry{Embedded Systems}
-  {}
-  {}
-  {- Developed digital systems using PIC microcontrollers interfacing with digital and analog peripherals.}
-  {C, PCB Design Software, PIC Assembly}
+% \timeFrame{2012}{2015}{Twenty Weeks} &
+% \entry{Embedded Systems}
+%   {}
+%   {}
+%   {- Developed digital systems using PIC microcontrollers interfacing with digital and analog peripherals.}
+%   {C, PCB Design Software, PIC Assembly}
 
-\timeFrame{2010}{}{One month} &
-\entry{Ants AI Challenge}
-  {}
-  {}
-  {- Placed 323 out of nearly 8000 contestants in an international programming contest to implement an algorithm controling a virtualized colony of ants.}
-  {Python}
+% \timeFrame{2010}{}{One month} &
+% \entry{Ants AI Challenge}
+%   {}
+%   {}
+%   {- Placed 323 out of nearly 8000 contestants in an international programming contest to implement an algorithm controling a virtualized colony of ants.}
+%   {Python}
 
 %    \timeFrame{2015}{2016}{Ten Weeks} &
 %    \entry{Advanced Microcomputers}{}{}
@@ -305,7 +309,7 @@
 \textbf{Education} & \horizontalLine \\
 
 % Masters (3.94 GPA)
-\timeFrame{2015}{2016}{Ome Year} &
+\timeFrame{2015}{2016}{One Year} &
 \entry{Rose-Hulman Institute of Technology}
   {}
   {Terre Haute, Indiana}
@@ -317,10 +321,9 @@
 \entry{Rose-Hulman Institute of Technology}
   {}
   {Terre Haute, Indiana}
-  {Bachelor of Science in Computer Engineering, Minor in Computer Science.}
+  {Bachelor of Science in Computer Engineering, Minor in Computer Science. \hfill \today}
   {}
 
 \end{tabularx}
 
-\vfill\hfill \today
 \end{document}
